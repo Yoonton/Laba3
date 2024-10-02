@@ -15,7 +15,11 @@ public class VehiclePrint {
         System.out.println();
     }
     public static void outputVehicle(Vehicle v, OutputStream out) throws IOException{
-        byte[] markByte = ("Название модели: " + v.getMark() + " Количество моделей: " + v.getSize()).getBytes();
+        byte[] markByte = ("Название марки: " + v.getMark() + " Количество моделей: " + v.getSize() + "\n").getBytes();
         out.write(markByte);
+        for(int i = 0; i < v.getSize(); i++){
+            byte[] modelByte = ("Название модели: " + v.getAllModelNames()[i] + " Цена: " + v.getAllModelPrices()[i] + "\n").getBytes();
+            out.write(modelByte);
+        }
     }
 }
