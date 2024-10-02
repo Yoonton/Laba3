@@ -13,6 +13,13 @@ public class Car implements Vehicle{
             carModels[i] = new CarModel("Name: " + i, 1000 + (1000000 - 1000)*rnd.nextDouble());
         }
     }
+    public Car(String mark, String[] models, double[] prices){
+        carMark = mark;
+        carModels = new CarModel[models.length];
+        for(int i = 0; i < models.length; i++){
+            carModels[i] = new CarModel(models[i], prices[i]);
+        }
+    }
     public String getMark(){
         return carMark;
     }
