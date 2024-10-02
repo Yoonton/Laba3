@@ -52,7 +52,7 @@ public class Motorbike implements Vehicle{
         }
         return temp;
     }
-    public void editModelName(String oldName, String newName) throws NoSuchModelNameException, DuplicateModelNameException{//!!!? исправил
+    public void editModelName(String oldName, String newName) throws NoSuchModelNameException, DuplicateModelNameException{
         Model temp = head.getNext();
         Model tempModel = null;
         while(temp != head){
@@ -113,11 +113,11 @@ public class Motorbike implements Vehicle{
         if(temp == null){
             throw new NoSuchModelNameException("Такой модели нет");
         } 
-        temp.setPrice(newPrice);//!!!?исправил
+        temp.setPrice(newPrice);
         lastModifed = LocalDateTime.now();
     }
     public void modelAdd(String newName, double newPrice) throws DuplicateModelNameException{
-        if(newPrice < 0){//!!!?исправил
+        if(newPrice < 0){
             throw new ModelPriceOutOfBoundsException("Неверная цена модели");
         }
         if(findByName(newName) != null){

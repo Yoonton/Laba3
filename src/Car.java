@@ -25,12 +25,6 @@ public class Car implements Vehicle{
     public void editModelName(String oldName, String newName) throws NoSuchModelNameException, DuplicateModelNameException{
         int ind = 0;
         int intModele = -1;
-        boolean isModifide = false;
-        /*for(int i = 0; i < carModels.length; i++){
-            if(carModels[i].getModelName().equals(newName)){
-                throw new DuplicateModelNameException("Новое имя не уникально");
-            }
-        }*/
         while(ind != carModels.length){
             if(carModels[ind].getModelName().equals(newName)){
                 throw new DuplicateModelNameException("Новое имя не уникально");
@@ -82,7 +76,7 @@ public class Car implements Vehicle{
         }
         carModels = Arrays.copyOf(carModels, carModels.length + 1);
         carModels[carModels.length-1] = new CarModel(newName, newPrice);
-    }//!!!? решено
+    }
     public void deliteModelByName(String name)throws NoSuchModelNameException{
         int ind = 0;
         while(ind != carModels.length && !(carModels[ind].getModelName().equals(name))){
@@ -91,10 +85,6 @@ public class Car implements Vehicle{
         if(ind == carModels.length){
             throw new NoSuchModelNameException("Модель не найдена");
         }
-        /*CarModel temp = carModels[ind];
-        carModels[ind] = carModels[carModels.length-1];
-        carModels[carModels.length-1] = temp;*/
-        //carModels = Arrays.copyOf(, carModels.length-1);//!!!?Исправил
         System.arraycopy(carModels, ind+1, carModels, ind, carModels.length - ind - 1);
         carModels = Arrays.copyOf(carModels, carModels.length-1);
     }
@@ -109,7 +99,7 @@ public class Car implements Vehicle{
         if(ind == carModels.length){
             throw new NoSuchModelNameException("Модель не найдена");
         }
-        carModels[ind].setPrice(newPrice);//!!!?исправил
+        carModels[ind].setPrice(newPrice);
     }
 
 
