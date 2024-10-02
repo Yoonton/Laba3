@@ -88,5 +88,6 @@ public class VehiclePrint {
         }
         System.out.println(mark + " " + Integer.toString(modelCount) + " " + modelNames[1] + " " + modelPrices[1]);
         //v = new Vehicle(mark, modelNames, modelPrices);
+        //глпанамгпаемглаглеа
     }
 }

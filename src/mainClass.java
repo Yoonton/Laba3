@@ -8,5 +8,6 @@ public class mainClass {
         InputStream i = new FileInputStream("C:\\Users\\mak-s\\ИВТ\\OOP\\Laba3\\lib\\test.txt");
         VehiclePrint.outputVehicle(car, o);
         VehiclePrint.inputVehicle(i);
+        //пагнпгнпгнпгнпгнпгнанана
     }
 }
