@@ -45,7 +45,7 @@ public class Car implements Vehicle{
             throw new NoSuchModelNameException("Модель не найдена");
         }
         else{
-            carModels[intModele].setModelName(newName);//?1 проход решено
+            carModels[intModele].setModelName(newName);
         }
     }
     public double getPriceByName(String name) throws NoSuchModelNameException{
