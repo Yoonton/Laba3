@@ -19,6 +19,20 @@ public class Motorbike implements Vehicle{
         head.prev = head;
         createModelList(s);
     }
+    public Motorbike(String name, String[] models, double[] prices){
+        bikeMark = name;
+        head = new Model();
+        head.next = head;
+        head.prev = head;
+        for(int i = 0; i < models.length; i++){
+            Model model = new Model(models[i], prices[i]);
+            model.setNext(head);
+            model.setPrev(head.getPrev());
+            head.getPrev().setNext(model);
+            head.setPrev(model);
+        }
+        size = models.length;
+    }
     public LocalDateTime getLastModifed(){
         return lastModifed;
     }

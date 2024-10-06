@@ -32,7 +32,8 @@ public class VehicleStatic {
             outStream.writeDouble(prices[i]);
         }
     }
-    public static void inputVehicle(InputStream in) throws IOException{
+    public static Vehicle inputVehicle(InputStream in) throws IOException{
+        Vehicle v = null;
         DataInputStream inStream = new DataInputStream(in);
         byte[] bytes = new byte[inStream.readInt()];
         for(int i = 0; i < bytes.length; i++){
@@ -44,5 +45,24 @@ public class VehicleStatic {
             bytes[i] = inStream.readByte();
         }
         String mark = new String(bytes);
+        String[] models = new String[inStream.readInt()];
+        double[] prices = new double[models.length];
+        for(int i = 0; i < models.length;i++){
+            bytes = new byte[inStream.readInt()];
+            for(int j = 0; j < bytes.length;j++){
+                bytes[j] = inStream.readByte();
+            }
+            models[i] = new String(bytes);
+            prices[i] = inStream.readDouble();
+        }
+        switch (vehicleClass) {
+            case "class Motorbike":
+                v = new Motorbike(mark, models, prices);
+                break;
+            case "class Car":
+                v = new Car(mark, models, prices);
+                break;
+        }
+        return v;
     }
 }
