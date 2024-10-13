@@ -100,6 +100,7 @@ public class VehicleStatic {
                 v = new Car(vehicleName, models, prices);
                 break;
         }
+        bf.close();
         return v;
     }
 }

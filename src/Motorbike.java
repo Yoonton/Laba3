@@ -1,11 +1,12 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Random;
 
-public class Motorbike implements Vehicle{
+public class Motorbike implements Vehicle, Serializable{
     private int size = 0;
     private Model head = null;
     private String bikeMark;
-    private static LocalDateTime lastModifed = null;
+    private transient LocalDateTime lastModifed = null;
 
     {
         lastModifed = LocalDateTime.now(); 
@@ -164,7 +165,7 @@ public class Motorbike implements Vehicle{
     }
 
 
-    private class Model{
+    private class Model implements Serializable{
         private String modelName = null;
         private Double price = Double.NaN;
         Model prev = null;

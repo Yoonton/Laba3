@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Random;
 
 
-public class Car implements Vehicle{
+public class Car implements Vehicle, Serializable{
     private String carMark;
     private CarModel[] carModels;
     public Car(String mark, int markCount){
@@ -111,7 +112,7 @@ public class Car implements Vehicle{
 
 
     
-    public class CarModel{
+    public class CarModel implements Serializable{
         private String modelName = "";
         private double price;
         public CarModel(){
