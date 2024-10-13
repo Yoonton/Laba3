@@ -31,6 +31,7 @@ public class VehicleStatic {
             outStream.write(bytes);
             outStream.writeDouble(prices[i]);
         }
+        outStream.close();
     }
     public static Vehicle inputVehicle(InputStream in) throws IOException{
         Vehicle v = null;
@@ -61,6 +62,42 @@ public class VehicleStatic {
                 break;
             case "class Car":
                 v = new Car(mark, models, prices);
+                break;
+        }
+        inStream.close();
+        return v;
+    }
+    public static void writeVehicle(Vehicle vehicle, Writer out){
+        PrintWriter printWriter = new PrintWriter(out);
+        printWriter.println(vehicle.getClass());
+        printWriter.println(vehicle.getMark());
+        printWriter.println(vehicle.getSize());
+        String[] models = vehicle.getAllModelNames();
+        double[] prices = vehicle.getAllModelPrices();
+        for(int i = 0; i < vehicle.getSize(); i++){
+            printWriter.println(models[i]);
+            printWriter.println(prices[i]);
+        }
+        printWriter.close();
+    }
+    public static Vehicle readVehicle(Reader in)throws IOException{
+        BufferedReader bf = new BufferedReader(in);
+        Vehicle v = null;
+        String vehicleClass = bf.readLine();
+        String vehicleName = bf.readLine();
+        int size = Integer.parseInt(bf.readLine());
+        String[] models = new String[size];
+        double[] prices = new double[size];
+        for(int i = 0; i < size; i++){
+            models[i] = bf.readLine();
+            prices[i] = Double.parseDouble(bf.readLine());
+        }
+        switch (vehicleClass) {
+            case "class Motorbike":
+                v = new Motorbike(vehicleName, models, prices);
+                break;
+            case "class Car":
+                v = new Car(vehicleName, models, prices);
                 break;
         }
         return v;
