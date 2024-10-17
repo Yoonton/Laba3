@@ -31,7 +31,6 @@ public class VehicleStatic {
             outStream.write(bytes);
             outStream.writeDouble(prices[i]);
         }
-        outStream.close();
     }
     public static Vehicle inputVehicle(InputStream in) throws IOException{
         Vehicle v = null;
@@ -64,7 +63,6 @@ public class VehicleStatic {
                 v = new Car(mark, models, prices);
                 break;
         }
-        inStream.close();
         return v;
     }
     public static void writeVehicle(Vehicle vehicle, Writer out){
@@ -78,7 +76,7 @@ public class VehicleStatic {
             printWriter.println(models[i]);
             printWriter.println(prices[i]);
         }
-        printWriter.close();
+        printWriter.flush();
     }
     public static Vehicle readVehicle(Reader in)throws IOException{
         BufferedReader bf = new BufferedReader(in);
@@ -100,7 +98,7 @@ public class VehicleStatic {
                 v = new Car(vehicleName, models, prices);
                 break;
         }
-        bf.close();
+      // bf.close();
         return v;
     }
 }

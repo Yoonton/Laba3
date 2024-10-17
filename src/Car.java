@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 
-public class Car implements Vehicle, Serializable{
+public class Car implements Vehicle{
     private String carMark;
     private CarModel[] carModels;
     public Car(String mark, int markCount){

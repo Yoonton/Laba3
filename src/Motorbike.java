@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Random;
 
-public class Motorbike implements Vehicle, Serializable{
+public class Motorbike implements Vehicle{
     private int size = 0;
     private Model head = null;
     private String bikeMark;

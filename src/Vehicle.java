@@ -1,4 +1,4 @@
-public interface Vehicle {
+public interface Vehicle extends java.io.Serializable {
     public void editModelName(String oldName,String newName) throws NoSuchModelNameException, DuplicateModelNameException;
     public double getPriceByName(String name) throws NoSuchModelNameException;
     public void setPriceByName(String name, double newPrice) throws NoSuchModelNameException;
